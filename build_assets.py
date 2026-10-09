@@ -10,7 +10,7 @@ OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "assets")
 os.makedirs(os.path.join(OUT, "projects"), exist_ok=True)
 
 # ---------- palette ----------
-BG0 = "#12061a"     # deep plum night
+BG0 = "#0c0814"     # deep plum night
 BG1 = "#22092d"
 PLUM = "#a21caf"
 ROSE = "#f472b6"
@@ -112,10 +112,10 @@ def header():
     <rect x="0" y="0" width="{W}" height="4" fill="url(#holo)"/>
 
     <!-- name -->
-    <text x="70" y="118" font-family="{MONO}" font-size="17" fill="{PINK}" letter-spacing="3">&gt; hello_world --from tunis</text>
+    <text x="70" y="118" font-family="{MONO}" font-size="17" fill="{PINK}" letter-spacing="3">&gt; kubectl apply -f roudayna.yaml</text>
     <text x="68" y="190" font-family="{SANS}" font-size="72" font-weight="800" fill="url(#holo)" letter-spacing="-1">Roudayna Kouka</text>
     <text x="70" y="236" font-family="{SANS}" font-size="25" font-weight="600" fill="{TEXT}">Cloud <tspan fill="{ROSE}">·</tspan> DevOps <tspan fill="{ROSE}">·</tspan> DevSecOps Engineer</text>
-    <text x="70" y="270" font-family="{SANS}" font-size="17" fill="{MUTED}">Software Engineering student · automating pipelines, securing the cloud, building with AI</text>
+    <text x="70" y="270" font-family="{SANS}" font-size="17" fill="{MUTED}">Secure CI/CD · Infrastructure as Code · GitOps on Kubernetes · AWS · Azure · GCP</text>
 
     <!-- chips -->
     <g font-family="{MONO}" font-size="14" font-weight="600">
@@ -125,7 +125,7 @@ def header():
       </g>
       <g transform="translate(180 290)">
         <rect width="104" height="30" rx="15" fill="{LILAC}" fill-opacity="0.12" stroke="{LILAC}" stroke-opacity="0.6"/>
-        <text x="52" y="20" text-anchor="middle" fill="{LILAC}">⎈ k8s</text>
+        <text x="52" y="20" text-anchor="middle" fill="{LILAC}">⎈ gitops</text>
       </g>
       <g transform="translate(296 290)">
         <rect width="104" height="30" rx="15" fill="{CYAN}" fill-opacity="0.10" stroke="{CYAN}" stroke-opacity="0.55"/>
@@ -190,18 +190,22 @@ def terminal():
     # segments: list of (text, color, bold)
     lines = [
         ("cmd", [("whoami", TEXT, True)]),
-        ("out", [("Roudayna Kouka", PINK, True), (" — Software Engineering student @ FST, Tunis", MUTED, False)]),
+        ("out", [("Roudayna Kouka", PINK, True), (" — Cloud · DevOps · DevSecOps Engineer", MUTED, False)]),
         ("gap", []),
-        ("cmd", [("cat focus.yaml", TEXT, True)]),
-        ("out", [("cloud:     ", LILAC, True), ("[ AWS · EKS · ECS · RDS · S3 ]", TEXT, False)]),
-        ("out", [("devops:    ", LILAC, True), ("[ Azure DevOps · Docker · Kubernetes · SonarQube ]", TEXT, False)]),
-        ("out", [("devsecops: ", LILAC, True), ("[ secure pipelines · shift-left · quality gates ]", TEXT, False)]),
-        ("out", [("dev:       ", LILAC, True), ("[ .NET · Spring Boot · MERN ]", TEXT, False)]),
-        ("out", [("ai:        ", LILAC, True), ("[ Deep Learning · NLP / BERT · MLOps ]", TEXT, False)]),
+        ("cmd", [("cat stack.yaml", TEXT, True)]),
+        ("out", [("cloud:         ", LILAC, True), ("[ AWS · Azure · GCP ]", TEXT, False)]),
+        ("out", [("iac:           ", LILAC, True), ("[ Terraform · Ansible ]", TEXT, False)]),
+        ("out", [("ci_cd:         ", LILAC, True), ("[ Jenkins · GitHub Actions · Azure DevOps · GitLab CI ]", TEXT, False)]),
+        ("out", [("gitops:        ", LILAC, True), ("[ Kubernetes · ArgoCD · Helm ]", TEXT, False)]),
+        ("out", [("devsecops:     ", LILAC, True), ("[ SonarQube · Trivy · OWASP DC · OPA/Rego ]", TEXT, False)]),
+        ("out", [("observability: ", LILAC, True), ("[ Prometheus · Grafana ]", TEXT, False)]),
         ("gap", []),
-        ("cmd", [("kubectl get mission", TEXT, True)]),
-        ("out", [("NAME       STATUS    MESSAGE", MUTED, True)]),
-        ("out", [("roudayna   ", TEXT, False), ("Running", "#86efac", True), ("   automate everything, secure by default ✨", PINK, False)]),
+        ("cmd", [("trivy image roudayna:latest --severity HIGH,CRITICAL", TEXT, True)]),
+        ("out", [("Total: 0 ", "#86efac", True), ("(HIGH: 0, CRITICAL: 0)", MUTED, False), ("  ✔ ship it", PINK, True)]),
+        ("gap", []),
+        ("cmd", [("kubectl get pods -n career", TEXT, True)]),
+        ("out", [("NAME         READY   STATUS    MESSAGE", MUTED, True)]),
+        ("out", [("roudayna-0   1/1     ", TEXT, False), ("Running", "#86efac", True), ("   open to internships & junior roles · 2027", PINK, False)]),
     ]
 
     top_pad = 64
@@ -336,24 +340,30 @@ def project_card(slug, kicker, title, desc, tags, accent, badge=None):
 
 
 PROJECTS = [
-    ("eks-three-tier", "DevOps · Kubernetes", "Three-Tier App on EKS",
-     "End-to-end DevOps delivery of a three-tier application on Amazon EKS: containerised services, Kubernetes manifests and automated CI/CD.",
-     ["AWS EKS", "Kubernetes", "Docker", "CI/CD"], ROSE, None),
-    ("azdo-solution-pipeline", "DevOps · Azure DevOps", "D365 Solution Pipeline",
-     "Automated export/import of Dynamics 365 CRM on-prem solutions with Azure DevOps Server, self-hosted agents and SonarQube quality gates.",
-     ["Azure DevOps", ".NET", "PowerShell", "SonarQube"], LILAC, None),
-    ("aws-ecs-three-tier", "Cloud · AWS", "Containerized 3-Tier on AWS",
-     "Highly available containerised architecture: ECS services, RDS Multi-AZ, ElastiCache and S3.",
-     ["ECS", "RDS Multi-AZ", "ElastiCache", "S3"], CYAN, "private"),
-    ("kan-ya-makan", "EdTech · GenAI", "Kan Ya Makan",
-     "Turns a prompt, a PDF or a library book into a 3D video story for children, with adaptations for dyslexia, ADHD, colour blindness and sign language.",
-     ["GenAI", "3D", "Accessibility"], PINK, "team"),
-    ("cve-causal", "AI · Security research", "CVE Causal Relations",
-     "Detecting causal relations between events in CVE descriptions with BERT-based binary classification.",
-     ["BERT", "NLP", "Python", "Security"], VIOLET, None),
-    ("adaptive-ai-tutor", "AI · MLOps", "Adaptive AI Tutor",
-     "Adaptive intelligent tutoring system combining reinforcement learning, generative AI and an MLOps pipeline.",
-     ["RL", "GenAI", "MLOps"], ROSE, "team"),
+    ("eks-three-tier", "DevSecOps · AWS EKS", "Three-Tier App on EKS",
+     "MERN app on Amazon EKS: Terraform infra, Jenkins CI with SonarQube & Trivy gates, ECR, GitOps with ArgoCD, Prometheus/Grafana monitoring.",
+     ["Terraform", "Jenkins", "ArgoCD", "Trivy"], ROSE, None),
+    ("netflix-devsecops", "DevSecOps · Kubernetes", "Netflix Clone DevSecOps",
+     "End-to-end DevSecOps delivery: SAST, dependency, filesystem and image scans in CI, deployed to Kubernetes with Helm and ArgoCD.",
+     ["SonarQube", "OWASP DC", "Helm", "ArgoCD"], LILAC, None),
+    ("azdo-solution-pipeline", "CI/CD · Azure DevOps", "D365 Solution Pipeline",
+     "Azure DevOps YAML pipeline for Dynamics 365 solutions: validation, packaging, backup, health checks and automated rollback.",
+     ["Azure DevOps", "YAML", "PowerShell", ".NET 8"], CYAN, None),
+    ("terraform-iac", "IaC · AWS", "Terraform IaC + CodePipeline",
+     "Infrastructure as Code on AWS with Terraform, delivered through an automated AWS CodePipeline workflow.",
+     ["Terraform", "AWS", "CodePipeline", "IaC"], VIOLET, None),
+    ("aws-ecs-three-tier", "Cloud architecture · AWS", "Containerized 3-Tier on AWS",
+     "Highly available ECS architecture behind CloudFront and WAF, with RDS Multi-AZ and ElastiCache.",
+     ["ECS", "WAF", "CloudFront", "RDS Multi-AZ"], PINK, "private"),
+    ("jenkins-ansible", "CI/CD · Automation", "Jenkins · Ansible · K8s CI/CD",
+     "Classic DevOps chain: Maven builds in Jenkins, configuration with Ansible, Docker images deployed on Kubernetes.",
+     ["Jenkins", "Maven", "Ansible", "Docker"], ROSE, None),
+    ("bh-agentic-ai", "AI · Event-driven", "BH Assurance Agentic AI",
+     "Agentic AI platform for insurance engagement: LLM agents, RAG, FastAPI microservices and Kafka event streams. Hackathon winner.",
+     ["LLMs", "RAG", "FastAPI", "Kafka"], LILAC, "1st place"),
+    ("secure-graphql", "AppSec · API", "Secure GraphQL API",
+     "Recipe API on an Apollo GraphQL server, secured with Keycloak authentication and role-based access control (RBAC).",
+     ["Keycloak", "RBAC", "GraphQL", "Apollo"], CYAN, None),
 ]
 
 
@@ -408,6 +418,84 @@ def footer():
 </svg>"""
 
 
+# =====================================================================
+# 5. DEVSECOPS PIPELINE (animated packet flowing through stages)
+# =====================================================================
+def pipeline():
+    W, H = 1200, 320
+    stages = [
+        ("01", "code", "Git", TEXT, False),
+        ("02", "build", "Jenkins · GHA", TEXT, False),
+        ("03", "SAST", "SonarQube", ROSE, True),
+        ("04", "SCA", "OWASP DC", ROSE, True),
+        ("05", "scan", "Trivy", ROSE, True),
+        ("06", "push", "ECR · Docker", TEXT, False),
+        ("07", "sync", "ArgoCD · Helm", CYAN, False),
+        ("08", "run", "Kubernetes", CYAN, False),
+        ("09", "observe", "Prometheus · Grafana", LILAC, False),
+    ]
+    x0, x1, y = 80, 1120, 150
+    n = len(stages)
+    step = (x1 - x0) / (n - 1)
+    T = 9.0
+    travel = 0.82
+    nodes = []
+    for i, (num, lab, tool, col, gate) in enumerate(stages):
+        x = x0 + i * step
+        f = travel * i / (n - 1)
+        k = [0, max(f - 0.001, 0), f + 0.015, min(f + 0.13, 0.999), 1]
+        if i == 0:
+            k = [0, 0.0005, 0.015, 0.13, 1]
+        kt = ";".join(f"{v:.4f}" for v in k)
+        stroke = ROSE if gate else (CYAN if col == CYAN else LILAC)
+        gate_svg = ""
+        if gate:
+            gate_svg = (f'<g transform="translate({x-26:.1f} {y-74})"><rect width="52" height="18" rx="9" fill="{ROSE}" fill-opacity="0.16" stroke="{ROSE}" stroke-opacity="0.6"/>'
+                        f'<text x="26" y="13" text-anchor="middle" font-family="{MONO}" font-size="10" fill="{PINK}">⛨ gate</text></g>')
+        nodes.append(f"""
+    <g>
+      {gate_svg}
+      <rect x="{x-38:.1f}" y="{y-38}" width="76" height="76" rx="18" fill="{stroke}" opacity="0.25" filter="url(#pglow)">
+        <animate attributeName="opacity" values="0.15;0.15;0.9;0.15;0.15" keyTimes="{kt}" dur="{T}s" repeatCount="indefinite"/>
+      </rect>
+      <rect x="{x-36:.1f}" y="{y-36}" width="72" height="72" rx="17" fill="#160a20" stroke="{stroke}" stroke-opacity="0.8" stroke-width="1.6"/>
+      <text x="{x:.1f}" y="{y-12}" text-anchor="middle" font-family="{MONO}" font-size="11" fill="{MUTED}">{num}</text>
+      <text x="{x:.1f}" y="{y+12}" text-anchor="middle" font-family="{MONO}" font-size="15" font-weight="700" fill="{col if col != TEXT else PINK}">{lab}</text>
+      <text x="{x:.1f}" y="{y+64}" text-anchor="middle" font-family="{SANS}" font-size="12.5" fill="{TEXT}">{escape(tool)}</text>
+    </g>""")
+    loop = f"M{x1} {y+82} C {x1} {y+130}, {x0} {y+130}, {x0} {y+82}"
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" aria-label="DevSecOps pipeline: code, build, SAST, SCA, image scan, push, GitOps sync, run on Kubernetes, observe">
+  <defs>
+    <linearGradient id="pbg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#140920"/><stop offset="1" stop-color="{BG0}"/></linearGradient>
+    {holo_gradient("pholo", "5s", W)}
+    <filter id="pglow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="9"/></filter>
+    <filter id="dotglow" x="-200%" y="-200%" width="500%" height="500%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <clipPath id="pclip"><rect width="{W}" height="{H}" rx="20"/></clipPath>
+  </defs>
+  <g clip-path="url(#pclip)">
+    <rect width="{W}" height="{H}" fill="url(#pbg)"/>
+    <text x="32" y="40" font-family="{MONO}" font-size="13" letter-spacing="2.5" fill="{ROSE}">$ git push origin main</text>
+    <text x="{W-32}" y="40" text-anchor="end" font-family="{MONO}" font-size="13" fill="{MUTED}">security gates at every stage · zero manual deploys</text>
+    <line x1="{x0}" y1="{y}" x2="{x1}" y2="{y}" stroke="{LILAC}" stroke-opacity="0.25" stroke-width="2"/>
+    <line x1="{x0}" y1="{y}" x2="{x1}" y2="{y}" stroke="url(#pholo)" stroke-width="2.5" stroke-dasharray="8 10">
+      <animate attributeName="stroke-dashoffset" from="0" to="-180" dur="3s" repeatCount="indefinite"/>
+    </line>
+    <path d="{loop}" fill="none" stroke="{LILAC}" stroke-opacity="0.45" stroke-width="1.5" stroke-dasharray="4 6">
+      <animate attributeName="stroke-dashoffset" from="0" to="60" dur="3s" repeatCount="indefinite"/>
+    </path>
+    <text x="{W/2}" y="{y+150}" text-anchor="middle" font-family="{MONO}" font-size="12" fill="{MUTED}">↺ feedback loop · metrics &amp; alerts drive the next commit</text>
+    {''.join(nodes)}
+    <circle r="7" fill="#fff" filter="url(#dotglow)">
+      <animate attributeName="cx" values="{x0};{x1};{x1};{x0}" keyTimes="0;{travel};0.97;1" dur="{T}s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="{y};{y};{y};{y}" dur="{T}s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="1;1;0;0" keyTimes="0;{travel};{travel+0.02};1" dur="{T}s" repeatCount="indefinite"/>
+      <animate attributeName="fill" values="#ffffff;{ROSE};{CYAN};{LILAC}" keyTimes="0;0.3;0.6;{travel}" dur="{T}s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  <rect x="0.75" y="0.75" width="{W-1.5}" height="{H-1.5}" rx="20" fill="none" stroke="url(#pholo)" stroke-opacity="0.6" stroke-width="1.5"/>
+</svg>"""
+
+
 def write(name, content):
     with open(os.path.join(OUT, name), "w", encoding="utf-8") as f:
         f.write(content)
@@ -418,13 +506,17 @@ if __name__ == "__main__":
     write("terminal.svg", terminal())
     write("divider.svg", divider())
     write("footer.svg", footer())
+    write("pipeline.svg", pipeline())
     for slug, sub, text in [
         ("about", "01 // about", "About me"),
-        ("stack", "02 // stack", "Tech stack"),
-        ("projects", "03 // projects", "Featured projects"),
-        ("wins", "04 // highlights", "Wins & community"),
-        ("stats", "05 // activity", "GitHub activity"),
-        ("contact", "06 // contact", "Let's connect"),
+        ("pipeline", "02 // how i ship", "Secure by default"),
+        ("experience", "03 // experience", "Where I've shipped"),
+        ("stack", "04 // stack", "Tech stack"),
+        ("projects", "05 // projects", "Featured projects"),
+        ("certs", "06 // certifications", "Certifications"),
+        ("wins", "07 // highlights", "Wins & community"),
+        ("stats", "08 // activity", "GitHub activity"),
+        ("contact", "09 // contact", "Let's connect"),
     ]:
         write(f"title-{slug}.svg", section_title(slug, None, text, sub))
     for p in PROJECTS:

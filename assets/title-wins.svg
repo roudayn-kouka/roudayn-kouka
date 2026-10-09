@@ -8,6 +8,6 @@
       <stop offset="1" stop-color="#f472b6"/>
       <animateTransform attributeName="gradientTransform" type="translate" from="0 0" to="500 0" dur="6s" repeatCount="indefinite"/>
     </linearGradient></defs>
-  <text x="2" y="20" font-family="'JetBrains Mono', 'Fira Code', Consolas, 'DejaVu Sans Mono', monospace" font-size="13" letter-spacing="3" fill="#f472b6">04 // highlights</text>
+  <text x="2" y="20" font-family="'JetBrains Mono', 'Fira Code', Consolas, 'DejaVu Sans Mono', monospace" font-size="13" letter-spacing="3" fill="#f472b6">07 // highlights</text>
   <text x="0" y="54" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="800" fill="url(#st_wins)">Wins &amp; community</text>
 </svg>

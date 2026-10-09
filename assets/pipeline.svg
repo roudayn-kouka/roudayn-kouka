@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="320" viewBox="0 0 1200 320" role="img" aria-label="DevSecOps pipeline: code, build, SAST, SCA, image scan, push, GitOps sync, run on Kubernetes, observe">
+  <defs>
+    <linearGradient id="pbg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#140920"/><stop offset="1" stop-color="#0c0814"/></linearGradient>
+    
+    <linearGradient id="pholo" x1="0" y1="0" x2="1200" y2="0" gradientUnits="userSpaceOnUse" spreadMethod="reflect">
+      <stop offset="0" stop-color="#f472b6"/>
+      <stop offset="0.25" stop-color="#c4b5fd"/>
+      <stop offset="0.5" stop-color="#67e8f9"/>
+      <stop offset="0.75" stop-color="#a78bfa"/>
+      <stop offset="1" stop-color="#f472b6"/>
+      <animateTransform attributeName="gradientTransform" type="translate" from="0 0" to="1200 0" dur="5s" repeatCount="indefinite"/>
+    </linearGradient>
+    <filter id="pglow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="9"/></filter>
+    <filter id="dotglow" x="-200%" y="-200%" width="500%" height="500%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <clipPath id="pclip"><rect width="1200" height="320" rx="20"/></clipPath>
+  </defs>
+  <g clip-path="url(#pclip)">
+    <rect width="1200" height="320" fill="url(#pbg)"/>
+    <text x="32" y="40" font-family="'JetBrains Mono', 'Fira Code', Consolas, 'DejaVu Sans Mono', monospace" font-size="13" letter-spacing="2.5" fill="#f472b6">$ git push origin main</text>
+    <text x="1168" y="40" text-anchor="end" font-family="'JetBrains Mono', 'Fira Code', Consolas, 'DejaVu Sans Mono', monospace" font-size="13" fill="#c9b3d9">security gates at every stage · zero manual deploys</text>
+    <line x1="80" y1="150" x2="1120" y2="150" stroke="#c4b5fd" stroke-opacity="0.25" stroke-width="2"/>
+    <line x1="80" y1="150" x2="1120" y2="150" stroke="url(#pholo)" stroke-width="2.5" stroke-dasharray="8 10">
+      <animate attributeName="stroke-dashoffset" from="0" to="-180" dur="3s" repeatCount="indefinite"/>
+    </line>
+    <path d="M1120 232 C 1120 280, 80 280, 80 232" fill="none" stroke="#c4b5fd" stroke-opacity="0.45" stroke-width="1.5" stroke-dasharray="4 6">
+      <animate attributeName="stroke-dashoffset" from="0" to="60" dur="3s" repeatCount="indefinite"/>
+    </path>
+    <text x="600.0" y="300" text-anchor="middle" font-family="'JetBrains Mono', 'Fira Code', Consolas, 'DejaVu Sans Mono', monospace" font-size="12" fill="#c9b3d9">↺ feedback loop · metrics &amp; alerts drive the next commit</text>
+    
+    <g>
+      
+      <rect x="42.0" y="112" width="76" height="76" rx="18" fill="#c4b5fd" opacity="0.25" filter="url(#pglow)">
+        <animate attributeName="opacity" values="0.15;0.15;0.9;0.15;0.15" keyTimes="0.0000;0.0005;0.0150;0.1300;1.0000" dur="9.0s" repeatCount="indefinite"/>
+      </rect>
+      <rect x="44.0" y="114" width="72" height="72" rx="17" fill="#160a20" stroke="#c4b5fd" stroke-opacity="0.8" stroke-width="1.6"/>
+      <text x="80.0" y="138" text-anchor="middle" font-family="'JetBrains Mono', 'Fira Code', Consolas, 'DejaVu Sans Mono', monospace" font-size="11" fill="#c9b3d9">01</text>
+      <text x="80.0" y="162" text-anchor="middle" font-family="'JetBrains Mono', 'Fira Code', Consolas, 'DejaVu Sans Mono', monospace" font-size="15" font-weight="700" fill="#f9a8d4">code</text>
+      <text x="80.0" y="214" text-anchor="middle" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" fill="#f5e8ff">Git</text>
+    </g>
+    <g>
+      
+      <rect x="172.0" y="112" width="76" height="76" rx="18" fill="#c4b5fd" opacity="0.25" filter="url(#pglow)">
+        <animate attributeName="opacity" values="0.15;0.15;0.9;0.15;0.15" keyTimes="0.0000;0.1015;0.1175;0.2325;1.0000" dur="9.0s" repeatCount="indefinite"/>
+      </rect>
+      <rect x="174.0" y="114" width="72" height="72" rx="17" fill="#160a20" stroke="#c4b5fd" stroke-opacity="0.8" stroke-width="1.6"/>
+      <text x="210.0" y="138" text-anchor="middle" font-family="'JetBrains Mono', 'Fira Code', Consolas, 'DejaVu Sans Mono', monospace" font-size="11" fill="#c9b3d9">02</text>
+      <text x="210.0" y="162" text-anchor="middle" font-family="'JetBrains Mono', 'Fira Code', Consolas, 'DejaVu Sans Mono', monospace" font-size="15" font-weight="700" fill="#f9a8d4">build</text>
+      <text x="210.0" y="214" text-anchor="middle" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" fill="#f5e8ff">Jenkins · GHA</text>
+    </g>
+    <g>
+      <g transform="translate(314.0 76)"><rect width="52" height="18" rx="9" fill="#f472b6" fill-opacity="0.16" stroke="#f472b6" stroke-opacity="0.6"/><text x="26" y="13" text-anchor="middle" font-family="'JetBrains Mono', 'Fira Code', Consolas, 'DejaVu Sans Mono', monospace" font-size="10" fill="#f9a8d4">⛨ gate</text></g>
+      <rect x="302.0" y="112" width="76" height="76" rx="18" fill="#f472b6" opacity="0.25" filter="url(#pglow)">
+        <animate attributeName="opacity" values="0.15;0.15;0.9;0.15;0.15" keyTimes="0.0000;0.2040;0.2200;0.3350;1.0000" dur="9.0s" repeatCount="indefinite"/>
+      </rect>
+      <rect x="304.0" y="114" width="72" height="72" rx="17" fill="#160a20" stroke="#f472b6" stroke-opacity="0.8" stroke-width="1.6"/>
+      <text x="340.0" y="138" text-anchor="middle" font-family="'JetBrains Mono', 'Fira Code', Consolas, 'DejaVu Sans Mono', monospace" font-size="11" fill="#c9b3d9">03</text>
+      <text x="340.0" y="162" text-anchor="middle" font-family="'JetBrains Mono', 'Fira Code', Consolas, 'DejaVu Sans Mono', monospace" font-size="15" font-weight="700" fill="#f472b6">SAST</text>
+      <text x="340.0" y="214" text-anchor="middle" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" fill="#f5e8ff">SonarQube</text>
+    </g>
+    <g>
+      <g transform="translate(444.0 76)"><rect width="52" height="18" rx="9" fill="#f472b6" fill-opacity="0.16" stroke="#f472b6" stroke-opacity="0.6"/><text x="26" y="13" text-anchor="middle" font-family="'JetBrains Mono', 'Fira Code', Consolas, 'DejaVu Sans Mono', monospace" font-size="10" fill="#f9a8d4">⛨ gate</text></g>
+      <rect x="432.0" y="112" width="76" height="76" rx="18" fill="#f472b6" opacity="0.25" filter="url(#pglow)">
+        <animate attributeName="opacity" values="0.15;0.15;0.9;0.15;0.15" keyTimes="0.0000;0.3065;0.3225;0.4375;1.0000" dur="9.0s" repeatCount="indefinite"/>
+      </rect>
+      <rect x="434.0" y="114" width="72" height="72" rx="17" fill="#160a20" stroke="#f472b6" stroke-opacity="0.8" stroke-width="1.6"/>
+      <text x="470.0" y="138" text-anchor="middle" font-family="'JetBrains Mono', 'Fira Code', Consolas, 'DejaVu Sans Mono', monospace" font-size="11" fill="#c9b3d9">04</text>
+      <text x="470.0" y="162" text-anchor="middle" font-family="'JetBrains Mono', 'Fira Code', Consolas, 'DejaVu Sans Mono', monospace" font-size="15" font-weight="700" fill="#f472b6">SCA</text>
+      <text x="470.0" y="214" text-anchor="middle" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" fill="#f5e8ff">OWASP DC</text>
+    </g>
+    <g>
+      <g transform="translate(574.0 76)"><rect width="52" height="18" rx="9" fill="#f472b6" fill-opacity="0.16" stroke="#f472b6" stroke-opacity="0.6"/><text x="26" y="13" text-anchor="middle" font-family="'JetBrains Mono', 'Fira Code', Consolas, 'DejaVu Sans Mono', monospace" font-size="10" fill="#f9a8d4">⛨ gate</text></g>
+      <rect x="562.0" y="112" width="76" height="76" rx="18" fill="#f472b6" opacity="0.25" filter="url(#pglow)">
+        <animate attributeName="opacity" values="0.15;0.15;0.9;0.15;0.15" keyTimes="0.0000;0.4090;0.4250;0.5400;1.0000" dur="9.0s" repeatCount="indefinite"/>
+      </rect>
+      <rect x="564.0" y="114" width="72" height="72" rx="17" fill="#160a20" stroke="#f472b6" stroke-opacity="0.8" stroke-width="1.6"/>
+      <text x="600.0" y="138" text-anchor="middle" font-family="'JetBrains Mono', 'Fira Code', Consolas, 'DejaVu Sans Mono', monospace" font-size="11" fill="#c9b3d9">05</text>
+      <text x="600.0" y="162" text-anchor="middle" font-family="'JetBrains Mono', 'Fira Code', Consolas, 'DejaVu Sans Mono', monospace" font-size="15" font-weight="700" fill="#f472b6">scan</text>
+      <text x="600.0" y="214" text-anchor="middle" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" fill="#f5e8ff">Trivy</text>
+    </g>
+    <g>
+      
+      <rect x="692.0" y="112" width="76" height="76" rx="18" fill="#c4b5fd" opacity="0.25" filter="url(#pglow)">
+        <animate attributeName="opacity" values="0.15;0.15;0.9;0.15;0.15" keyTimes="0.0000;0.5115;0.5275;0.6425;1.0000" dur="9.0s" repeatCount="indefinite"/>
+      </rect>
+      <rect x="694.0" y="114" width="72" height="72" rx="17" fill="#160a20" stroke="#c4b5fd" stroke-opacity="0.8" stroke-width="1.6"/>
+      <text x="730.0" y="138" text-anchor="middle" font-family="'JetBrains Mono', 'Fira Code', Consolas, 'DejaVu Sans Mono', monospace" font-size="11" fill="#c9b3d9">06</text>
+      <text x="730.0" y="162" text-anchor="middle" font-family="'JetBrains Mono', 'Fira Code', Consolas, 'DejaVu Sans Mono', monospace" font-size="15" font-weight="700" fill="#f9a8d4">push</text>
+      <text x="730.0" y="214" text-anchor="middle" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" fill="#f5e8ff">ECR · Docker</text>
+    </g>
+    <g>
+      
+      <rect x="822.0" y="112" width="76" height="76" rx="18" fill="#67e8f9" opacity="0.25" filter="url(#pglow)">
+        <animate attributeName="opacity" values="0.15;0.15;0.9;0.15;0.15" keyTimes="0.0000;0.6140;0.6300;0.7450;1.0000" dur="9.0s" repeatCount="indefinite"/>
+      </rect>
+      <rect x="824.0" y="114" width="72" height="72" rx="17" fill="#160a20" stroke="#67e8f9" stroke-opacity="0.8" stroke-width="1.6"/>
+      <text x="860.0" y="138" text-anchor="middle" font-family="'JetBrains Mono', 'Fira Code', Consolas, 'DejaVu Sans Mono', monospace" font-size="11" fill="#c9b3d9">07</text>
+      <text x="860.0" y="162" text-anchor="middle" font-family="'JetBrains Mono', 'Fira Code', Consolas, 'DejaVu Sans Mono', monospace" font-size="15" font-weight="700" fill="#67e8f9">sync</text>
+      <text x="860.0" y="214" text-anchor="middle" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" fill="#f5e8ff">ArgoCD · Helm</text>
+    </g>
+    <g>
+      
+      <rect x="952.0" y="112" width="76" height="76" rx="18" fill="#67e8f9" opacity="0.25" filter="url(#pglow)">
+        <animate attributeName="opacity" values="0.15;0.15;0.9;0.15;0.15" keyTimes="0.0000;0.7165;0.7325;0.8475;1.0000" dur="9.0s" repeatCount="indefinite"/>
+      </rect>
+      <rect x="954.0" y="114" width="72" height="72" rx="17" fill="#160a20" stroke="#67e8f9" stroke-opacity="0.8" stroke-width="1.6"/>
+      <text x="990.0" y="138" text-anchor="middle" font-family="'JetBrains Mono', 'Fira Code', Consolas, 'DejaVu Sans Mono', monospace" font-size="11" fill="#c9b3d9">08</text>
+      <text x="990.0" y="162" text-anchor="middle" font-family="'JetBrains Mono', 'Fira Code', Consolas, 'DejaVu Sans Mono', monospace" font-size="15" font-weight="700" fill="#67e8f9">run</text>
+      <text x="990.0" y="214" text-anchor="middle" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" fill="#f5e8ff">Kubernetes</text>
+    </g>
+    <g>
+      
+      <rect x="1082.0" y="112" width="76" height="76" rx="18" fill="#c4b5fd" opacity="0.25" filter="url(#pglow)">
+        <animate attributeName="opacity" values="0.15;0.15;0.9;0.15;0.15" keyTimes="0.0000;0.8190;0.8350;0.9500;1.0000" dur="9.0s" repeatCount="indefinite"/>
+      </rect>
+      <rect x="1084.0" y="114" width="72" height="72" rx="17" fill="#160a20" stroke="#c4b5fd" stroke-opacity="0.8" stroke-width="1.6"/>
+      <text x="1120.0" y="138" text-anchor="middle" font-family="'JetBrains Mono', 'Fira Code', Consolas, 'DejaVu Sans Mono', monospace" font-size="11" fill="#c9b3d9">09</text>
+      <text x="1120.0" y="162" text-anchor="middle" font-family="'JetBrains Mono', 'Fira Code', Consolas, 'DejaVu Sans Mono', monospace" font-size="15" font-weight="700" fill="#c4b5fd">observe</text>
+      <text x="1120.0" y="214" text-anchor="middle" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" fill="#f5e8ff">Prometheus · Grafana</text>
+    </g>
+    <circle r="7" fill="#fff" filter="url(#dotglow)">
+      <animate attributeName="cx" values="80;1120;1120;80" keyTimes="0;0.82;0.97;1" dur="9.0s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="150;150;150;150" dur="9.0s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="1;1;0;0" keyTimes="0;0.82;0.84;1" dur="9.0s" repeatCount="indefinite"/>
+      <animate attributeName="fill" values="#ffffff;#f472b6;#67e8f9;#c4b5fd" keyTimes="0;0.3;0.6;0.82" dur="9.0s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  <rect x="0.75" y="0.75" width="1198.5" height="318.5" rx="20" fill="none" stroke="url(#pholo)" stroke-opacity="0.6" stroke-width="1.5"/>
+</svg>
