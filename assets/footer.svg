@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="150" viewBox="0 0 1200 150">
+  <defs>
+    <linearGradient id="w1" x1="0" x2="1"><stop offset="0" stop-color="#a21caf"/><stop offset="0.5" stop-color="#f472b6"/><stop offset="1" stop-color="#a78bfa"/></linearGradient>
+    <linearGradient id="w2" x1="0" x2="1"><stop offset="0" stop-color="#c4b5fd"/><stop offset="1" stop-color="#a21caf"/></linearGradient>
+  </defs>
+  <path fill="url(#w2)" opacity="0.35" d="M0 70 C 200 40 400 100 600 70 S 1000 40 1200 70 L1200 150 L0 150 Z">
+    <animate attributeName="d" dur="9s" repeatCount="indefinite" values="M0 70 C 200 40 400 100 600 70 S 1000 40 1200 70 L1200 150 L0 150 Z;M0 64 C 200 94 400 34 600 64 S 1000 94 1200 64 L1200 150 L0 150 Z;M0 70 C 200 40 400 100 600 70 S 1000 40 1200 70 L1200 150 L0 150 Z"/>
+  </path>
+  <path fill="url(#w1)" opacity="0.55" d="M0 88 C 200 112 400 64 600 88 S 1000 112 1200 88 L1200 150 L0 150 Z">
+    <animate attributeName="d" dur="7s" repeatCount="indefinite" values="M0 88 C 200 112 400 64 600 88 S 1000 112 1200 88 L1200 150 L0 150 Z;M0 94 C 200 70 400 118 600 94 S 1000 70 1200 94 L1200 150 L0 150 Z;M0 88 C 200 112 400 64 600 88 S 1000 112 1200 88 L1200 150 L0 150 Z"/>
+  </path>
+  <path fill="#22092d" d="M0 112 C 200 96 400 128 600 112 S 1000 96 1200 112 L1200 150 L0 150 Z">
+    <animate attributeName="d" dur="11s" repeatCount="indefinite" values="M0 112 C 200 96 400 128 600 112 S 1000 96 1200 112 L1200 150 L0 150 Z;M0 108 C 200 124 400 92 600 108 S 1000 124 1200 108 L1200 150 L0 150 Z;M0 112 C 200 96 400 128 600 112 S 1000 96 1200 112 L1200 150 L0 150 Z"/>
+  </path>
+  <text x="600.0" y="138" text-anchor="middle" font-family="'JetBrains Mono', 'Fira Code', Consolas, 'DejaVu Sans Mono', monospace" font-size="14" fill="#f9a8d4">made with ♥ in Tunis · thanks for visiting ✨</text>
+</svg>

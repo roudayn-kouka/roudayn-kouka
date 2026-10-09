@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="64" viewBox="0 0 900 64" role="img" aria-label="About me">
+  <defs>
+    <linearGradient id="st_about" x1="0" y1="0" x2="500" y2="0" gradientUnits="userSpaceOnUse" spreadMethod="reflect">
+      <stop offset="0" stop-color="#f472b6"/>
+      <stop offset="0.25" stop-color="#c4b5fd"/>
+      <stop offset="0.5" stop-color="#67e8f9"/>
+      <stop offset="0.75" stop-color="#a78bfa"/>
+      <stop offset="1" stop-color="#f472b6"/>
+      <animateTransform attributeName="gradientTransform" type="translate" from="0 0" to="500 0" dur="6s" repeatCount="indefinite"/>
+    </linearGradient></defs>
+  <text x="2" y="20" font-family="'JetBrains Mono', 'Fira Code', Consolas, 'DejaVu Sans Mono', monospace" font-size="13" letter-spacing="3" fill="#f472b6">01 // about</text>
+  <text x="0" y="54" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="800" fill="url(#st_about)">About me</text>
+</svg>

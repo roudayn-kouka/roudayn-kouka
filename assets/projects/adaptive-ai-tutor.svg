@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="230" viewBox="0 0 440 230" role="img" aria-label="Adaptive AI Tutor">
+  <defs>
+    <linearGradient id="bg_adaptive-ai-tutor" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1e0828"/><stop offset="1" stop-color="#12061a"/></linearGradient>
+    
+    <linearGradient id="h_adaptive-ai-tutor" x1="0" y1="0" x2="440" y2="0" gradientUnits="userSpaceOnUse" spreadMethod="reflect">
+      <stop offset="0" stop-color="#f472b6"/>
+      <stop offset="0.25" stop-color="#c4b5fd"/>
+      <stop offset="0.5" stop-color="#67e8f9"/>
+      <stop offset="0.75" stop-color="#a78bfa"/>
+      <stop offset="1" stop-color="#f472b6"/>
+      <animateTransform attributeName="gradientTransform" type="translate" from="0 0" to="440 0" dur="5s" repeatCount="indefinite"/>
+    </linearGradient>
+    <radialGradient id="glow_adaptive-ai-tutor" cx="1" cy="0" r="0.9"><stop offset="0" stop-color="#f472b6" stop-opacity="0.35"/><stop offset="1" stop-color="#f472b6" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="440" height="230" rx="18" fill="url(#bg_adaptive-ai-tutor)"/>
+  <rect width="440" height="230" rx="18" fill="url(#glow_adaptive-ai-tutor)">
+    <animate attributeName="opacity" values="0.6;1;0.6" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  <text x="26" y="40" font-family="'JetBrains Mono', 'Fira Code', Consolas, 'DejaVu Sans Mono', monospace" font-size="12.5" letter-spacing="2" fill="#f472b6">AI · MLOPS</text>
+  <text x="26" y="76" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="23" font-weight="800" fill="#f5e8ff">Adaptive AI Tutor</text>
+  <g transform="translate(362 22)"><rect width="52" height="24" rx="12" fill="#12061a" stroke="#f9a8d4" stroke-opacity="0.55"/><text x="26" y="16.5" text-anchor="middle" font-family="'JetBrains Mono', 'Fira Code', Consolas, 'DejaVu Sans Mono', monospace" font-size="11.5" fill="#f9a8d4">team</text></g>
+  <text x="26" y="110" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="14.5" fill="#c9b3d9">Adaptive intelligent tutoring system combining</text><text x="26" y="131" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="14.5" fill="#c9b3d9">reinforcement learning, generative AI and an MLOps</text><text x="26" y="152" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="14.5" fill="#c9b3d9">pipeline.</text>
+  <g transform="translate(26 182)"><rect width="37" height="26" rx="13" fill="#f472b6" fill-opacity="0.13" stroke="#f472b6" stroke-opacity="0.5"/><text x="19" y="17.5" text-anchor="middle" font-family="'JetBrains Mono', 'Fira Code', Consolas, 'DejaVu Sans Mono', monospace" font-size="12" fill="#f472b6">RL</text></g><g transform="translate(71 182)"><rect width="60" height="26" rx="13" fill="#f472b6" fill-opacity="0.13" stroke="#f472b6" stroke-opacity="0.5"/><text x="30" y="17.5" text-anchor="middle" font-family="'JetBrains Mono', 'Fira Code', Consolas, 'DejaVu Sans Mono', monospace" font-size="12" fill="#f472b6">GenAI</text></g><g transform="translate(139 182)"><rect width="60" height="26" rx="13" fill="#f472b6" fill-opacity="0.13" stroke="#f472b6" stroke-opacity="0.5"/><text x="30" y="17.5" text-anchor="middle" font-family="'JetBrains Mono', 'Fira Code', Consolas, 'DejaVu Sans Mono', monospace" font-size="12" fill="#f472b6">MLOps</text></g>
+  <rect x="1" y="1" width="438" height="228" rx="17" fill="none" stroke="url(#h_adaptive-ai-tutor)" stroke-width="2"/>
+</svg>

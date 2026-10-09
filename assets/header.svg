@@ -1,0 +1,165 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="340" viewBox="0 0 1200 340" role="img" aria-label="Roudayna Kouka — Cloud, DevOps &amp; DevSecOps">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#12061a"/>
+      <stop offset="0.55" stop-color="#22092d"/>
+      <stop offset="1" stop-color="#2d0b3a"/>
+    </linearGradient>
+    
+    <linearGradient id="holo" x1="0" y1="0" x2="1200" y2="0" gradientUnits="userSpaceOnUse" spreadMethod="reflect">
+      <stop offset="0" stop-color="#f472b6"/>
+      <stop offset="0.25" stop-color="#c4b5fd"/>
+      <stop offset="0.5" stop-color="#67e8f9"/>
+      <stop offset="0.75" stop-color="#a78bfa"/>
+      <stop offset="1" stop-color="#f472b6"/>
+      <animateTransform attributeName="gradientTransform" type="translate" from="0 0" to="1200 0" dur="7s" repeatCount="indefinite"/>
+    </linearGradient>
+    
+    <linearGradient id="holoFast" x1="0" y1="0" x2="600" y2="0" gradientUnits="userSpaceOnUse" spreadMethod="reflect">
+      <stop offset="0" stop-color="#f472b6"/>
+      <stop offset="0.25" stop-color="#c4b5fd"/>
+      <stop offset="0.5" stop-color="#67e8f9"/>
+      <stop offset="0.75" stop-color="#a78bfa"/>
+      <stop offset="1" stop-color="#f472b6"/>
+      <animateTransform attributeName="gradientTransform" type="translate" from="0 0" to="600 0" dur="4s" repeatCount="indefinite"/>
+    </linearGradient>
+    <radialGradient id="orbRose"><stop offset="0" stop-color="#f472b6" stop-opacity="0.55"/><stop offset="1" stop-color="#f472b6" stop-opacity="0"/></radialGradient>
+    <radialGradient id="orbLilac"><stop offset="0" stop-color="#c4b5fd" stop-opacity="0.45"/><stop offset="1" stop-color="#c4b5fd" stop-opacity="0"/></radialGradient>
+    <radialGradient id="orbPlum"><stop offset="0" stop-color="#a21caf" stop-opacity="0.6"/><stop offset="1" stop-color="#a21caf" stop-opacity="0"/></radialGradient>
+    <linearGradient id="faceTop" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f9a8d4"/><stop offset="1" stop-color="#c4b5fd"/>
+      <animate attributeName="x1" values="0;1;0" dur="5s" repeatCount="indefinite"/></linearGradient>
+    <linearGradient id="faceLeft" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f472b6"/><stop offset="1" stop-color="#a21caf"/></linearGradient>
+    <linearGradient id="faceRight" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a78bfa"/><stop offset="1" stop-color="#5b1a77"/></linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0 L0 0 0 40" fill="none" stroke="#c4b5fd" stroke-opacity="0.07" stroke-width="1"/>
+    </pattern>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="soft"><feGaussianBlur stdDeviation="28"/></filter>
+    <clipPath id="card"><rect width="1200" height="340" rx="22"/></clipPath>
+  </defs>
+
+  <g clip-path="url(#card)">
+    <rect width="1200" height="340" fill="url(#bg)"/>
+    <rect width="1200" height="340" fill="url(#grid)"/>
+
+    <!-- drifting aurora orbs -->
+    <g filter="url(#soft)">
+      <circle cx="180" cy="60" r="190" fill="url(#orbPlum)">
+        <animate attributeName="cx" values="180;320;180" dur="14s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="760" cy="300" r="220" fill="url(#orbRose)">
+        <animate attributeName="cx" values="760;600;760" dur="16s" repeatCount="indefinite"/>
+        <animate attributeName="cy" values="300;250;300" dur="11s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="1050" cy="80" r="200" fill="url(#orbLilac)">
+        <animate attributeName="cy" values="80;150;80" dur="12s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+
+    <!-- holographic top line -->
+    <rect x="0" y="0" width="1200" height="4" fill="url(#holo)"/>
+
+    <!-- name -->
+    <text x="70" y="118" font-family="'JetBrains Mono', 'Fira Code', Consolas, 'DejaVu Sans Mono', monospace" font-size="17" fill="#f9a8d4" letter-spacing="3">&gt; hello_world --from tunis</text>
+    <text x="68" y="190" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="72" font-weight="800" fill="url(#holo)" letter-spacing="-1">Roudayna Kouka</text>
+    <text x="70" y="236" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="25" font-weight="600" fill="#f5e8ff">Cloud <tspan fill="#f472b6">·</tspan> DevOps <tspan fill="#f472b6">·</tspan> DevSecOps Engineer</text>
+    <text x="70" y="270" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif" font-size="17" fill="#c9b3d9">Software Engineering student · automating pipelines, securing the cloud, building with AI</text>
+
+    <!-- chips -->
+    <g font-family="'JetBrains Mono', 'Fira Code', Consolas, 'DejaVu Sans Mono', monospace" font-size="14" font-weight="600">
+      <g transform="translate(70 290)">
+        <rect width="98" height="30" rx="15" fill="#f472b6" fill-opacity="0.14" stroke="#f472b6" stroke-opacity="0.6"/>
+        <text x="49" y="20" text-anchor="middle" fill="#f9a8d4">☁ cloud</text>
+      </g>
+      <g transform="translate(180 290)">
+        <rect width="104" height="30" rx="15" fill="#c4b5fd" fill-opacity="0.12" stroke="#c4b5fd" stroke-opacity="0.6"/>
+        <text x="52" y="20" text-anchor="middle" fill="#c4b5fd">⎈ k8s</text>
+      </g>
+      <g transform="translate(296 290)">
+        <rect width="104" height="30" rx="15" fill="#67e8f9" fill-opacity="0.10" stroke="#67e8f9" stroke-opacity="0.55"/>
+        <text x="52" y="20" text-anchor="middle" fill="#67e8f9">⟳ ci/cd</text>
+      </g>
+      <g transform="translate(412 290)">
+        <rect width="118" height="30" rx="15" fill="#a78bfa" fill-opacity="0.12" stroke="#a78bfa" stroke-opacity="0.6"/>
+        <text x="59" y="20" text-anchor="middle" fill="#a78bfa">⛨ secops</text>
+      </g>
+    </g>
+
+    <!-- orbit rings -->
+    <g transform="translate(985 165)" fill="none">
+      <ellipse rx="150" ry="46" stroke="url(#holoFast)" stroke-width="2" stroke-dasharray="6 10" opacity="0.8" transform="rotate(-18)">
+        <animate attributeName="stroke-dashoffset" from="0" to="-160" dur="4s" repeatCount="indefinite"/>
+      </ellipse>
+      <ellipse rx="118" ry="128" stroke="#c4b5fd" stroke-opacity="0.25" stroke-width="1.5" transform="rotate(30)"/>
+      <!-- satellites -->
+      <circle r="6" fill="#f472b6" filter="url(#glow)">
+        <animateMotion dur="6s" repeatCount="indefinite" path="M150 0 A150 46 0 1 1 -150 0 A150 46 0 1 1 150 0" rotate="0"/>
+      </circle>
+      <circle r="4.5" fill="#67e8f9" filter="url(#glow)">
+        <animateMotion dur="9s" repeatCount="indefinite" path="M0 -128 A118 128 0 1 1 0 128 A118 128 0 1 1 0 -128"/>
+      </circle>
+    </g>
+
+    <!-- floating holographic cube -->
+    <g filter="url(#glow)">
+      <animateTransform attributeName="transform" type="translate" values="0 0; 0 -12; 0 0" dur="5s" repeatCount="indefinite"/>
+      <path d="M924.3782217350893 130.0 L985 165 L985 235 L924.3782217350893 200.0 Z" fill="url(#faceLeft)" opacity="0.92"/>
+      <path d="M1045.6217782649107 130.0 L985 165 L985 235 L1045.6217782649107 200.0 Z" fill="url(#faceRight)" opacity="0.92"/>
+      <path d="M985 95 L1045.6217782649107 130.0 L985 165 L924.3782217350893 130.0 Z" fill="url(#faceTop)"/>
+      <path d="M985 95 L1045.6217782649107 130.0 L985 165 L924.3782217350893 130.0 Z M924.3782217350893 130.0 L985 165 L985 235 L924.3782217350893 200.0 Z M1045.6217782649107 130.0 L985 165 L985 235 L1045.6217782649107 200.0 Z" fill="none" stroke="#fff" stroke-opacity="0.55" stroke-width="1.5" stroke-linejoin="round"/>
+      <!-- glint sweeping across the cube -->
+      <path d="M924.3782217350893 130.0 L942.3782217350893 120.0 L993 225 L975 235 Z" fill="#fff" opacity="0">
+        <animate attributeName="opacity" values="0;0;0.35;0" keyTimes="0;0.6;0.75;1" dur="5s" repeatCount="indefinite"/>
+      </path>
+    </g>
+    <!-- cube shadow -->
+    <ellipse cx="985" cy="287" rx="70" ry="9" fill="#a21caf" opacity="0.45">
+      <animate attributeName="rx" values="70;56;70" dur="5s" repeatCount="indefinite"/>
+    </ellipse>
+
+    
+    <g transform="translate(640 70)">
+      <path d="M0 -7 L1.75 -1.75 L7 0 L1.75 1.75 L0 7 L-1.75 1.75 L-7 0 L-1.75 -1.75 Z" fill="#f9a8d4">
+        <animate attributeName="opacity" values="0;1;0" dur="2.2s" begin="0.00s" repeatCount="indefinite"/>
+        <animateTransform attributeName="transform" type="scale" values="0.4;1;0.4" dur="2.2s" begin="0.00s" repeatCount="indefinite"/>
+      </path>
+    </g>
+    <g transform="translate(860 52)">
+      <path d="M0 -5 L1.25 -1.25 L5 0 L1.25 1.25 L0 5 L-1.25 1.25 L-5 0 L-1.25 -1.25 Z" fill="#f9a8d4">
+        <animate attributeName="opacity" values="0;1;0" dur="2.9s" begin="0.37s" repeatCount="indefinite"/>
+        <animateTransform attributeName="transform" type="scale" values="0.4;1;0.4" dur="2.9s" begin="0.37s" repeatCount="indefinite"/>
+      </path>
+    </g>
+    <g transform="translate(1130 250)">
+      <path d="M0 -6 L1.5 -1.5 L6 0 L1.5 1.5 L0 6 L-1.5 1.5 L-6 0 L-1.5 -1.5 Z" fill="#f9a8d4">
+        <animate attributeName="opacity" values="0;1;0" dur="3.6s" begin="0.74s" repeatCount="indefinite"/>
+        <animateTransform attributeName="transform" type="scale" values="0.4;1;0.4" dur="3.6s" begin="0.74s" repeatCount="indefinite"/>
+      </path>
+    </g>
+    <g transform="translate(560 300)">
+      <path d="M0 -4 L1.0 -1.0 L4 0 L1.0 1.0 L0 4 L-1.0 1.0 L-4 0 L-1.0 -1.0 Z" fill="#f9a8d4">
+        <animate attributeName="opacity" values="0;1;0" dur="4.3s" begin="1.11s" repeatCount="indefinite"/>
+        <animateTransform attributeName="transform" type="scale" values="0.4;1;0.4" dur="4.3s" begin="1.11s" repeatCount="indefinite"/>
+      </path>
+    </g>
+    <g transform="translate(1150 40)">
+      <path d="M0 -4 L1.0 -1.0 L4 0 L1.0 1.0 L0 4 L-1.0 1.0 L-4 0 L-1.0 -1.0 Z" fill="#f9a8d4">
+        <animate attributeName="opacity" values="0;1;0" dur="2.2s" begin="1.48s" repeatCount="indefinite"/>
+        <animateTransform attributeName="transform" type="scale" values="0.4;1;0.4" dur="2.2s" begin="1.48s" repeatCount="indefinite"/>
+      </path>
+    </g>
+    <g transform="translate(720 160)">
+      <path d="M0 -3 L0.75 -0.75 L3 0 L0.75 0.75 L0 3 L-0.75 0.75 L-3 0 L-0.75 -0.75 Z" fill="#f9a8d4">
+        <animate attributeName="opacity" values="0;1;0" dur="2.9s" begin="1.85s" repeatCount="indefinite"/>
+        <animateTransform attributeName="transform" type="scale" values="0.4;1;0.4" dur="2.9s" begin="1.85s" repeatCount="indefinite"/>
+      </path>
+    </g>
+    <g transform="translate(930 300)">
+      <path d="M0 -5 L1.25 -1.25 L5 0 L1.25 1.25 L0 5 L-1.25 1.25 L-5 0 L-1.25 -1.25 Z" fill="#f9a8d4">
+        <animate attributeName="opacity" values="0;1;0" dur="3.6s" begin="0.22s" repeatCount="indefinite"/>
+        <animateTransform attributeName="transform" type="scale" values="0.4;1;0.4" dur="3.6s" begin="0.22s" repeatCount="indefinite"/>
+      </path>
+    </g>
+  </g>
+  <rect x="0.5" y="0.5" width="1199" height="339" rx="22" fill="none" stroke="#c4b5fd" stroke-opacity="0.25"/>
+</svg>
