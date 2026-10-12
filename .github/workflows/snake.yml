@@ -18,6 +18,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      # Runs FIRST so that dist/ is created by the runner user.
+      # (Platane/snk runs in a Docker container as root: if it creates dist/ first,
+      #  the runner user can no longer write into it -> PermissionError.)
+      - name: Generate activity graph (last 31 days)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_USER: ${{ github.repository_owner }}
+        run: |
+          mkdir -p dist
+          python3 scripts/activity_graph.py dist/activity-graph.svg
+
       - name: Generate snake (plum / rose / lilac palette)
         uses: Platane/snk@v3
         with:
@@ -25,11 +36,8 @@ jobs:
           outputs: |
             dist/snake-plum.svg?color_snake=#f472b6&color_dots=#2a0f36,#5b2168,#8b3a9c,#c084fc,#f9a8d4&color_dot_border=#0c0814
 
-      - name: Generate activity graph (last 31 days)
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GH_USER: ${{ github.repository_owner }}
-        run: python3 scripts/activity_graph.py dist/activity-graph.svg
+      - name: Fix dist/ ownership
+        run: sudo chown -R "$(id -u):$(id -g)" dist && ls -la dist
 
       - name: Push to the "output" branch
         uses: crazy-max/ghaction-github-pages@v4
