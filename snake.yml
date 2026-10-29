@@ -1,0 +1,51 @@
+name: Generate profile graphs (snake + cards)
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"    # every 6 hours
+  workflow_dispatch:          # run it manually the first time
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  graphs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Runs FIRST so that dist/ is created by the runner user.
+      # (Platane/snk runs in a Docker container as root: if it creates dist/ first,
+      #  the runner user can no longer write into it -> PermissionError.)
+      - name: Generate stats, streak & activity cards
+        env:
+          # PROFILE_TOKEN = your own token -> counts PRIVATE contributions too
+          # (same numbers as your GitHub calendar). Falls back to public-only.
+          PROFILE_TOKEN: ${{ secrets.PROFILE_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_USER: ${{ github.repository_owner }}
+        run: |
+          mkdir -p dist
+          python3 scripts/profile_cards.py dist
+
+      - name: Generate snake (plum / rose / lilac palette)
+        uses: Platane/snk@v3
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          outputs: |
+            dist/snake-plum.svg?color_snake=#f472b6&color_dots=#2a0f36,#5b2168,#8b3a9c,#c084fc,#f9a8d4&color_dot_border=#0c0814
+
+      - name: Fix dist/ ownership
+        run: sudo chown -R "$(id -u):$(id -g)" dist && ls -la dist
+
+      - name: Push to the "output" branch
+        uses: crazy-max/ghaction-github-pages@v4
+        with:
+          target_branch: output
+          build_dir: dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

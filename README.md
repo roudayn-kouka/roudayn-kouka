@@ -184,12 +184,12 @@ status:
 <img src="./assets/title-stats.svg" height="54" alt="GitHub activity"/>
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=roudayn-kouka&show_icons=true&include_all_commits=true&count_private=true&hide_border=true&bg_color=0c0814&title_color=f472b6&text_color=f5e8ff&icon_color=c4b5fd&ring_color=f472b6&border_radius=16" height="170" alt="GitHub stats"/>
+  <img src="https://raw.githubusercontent.com/roudayn-kouka/roudayn-kouka/output/stats.svg" height="170" alt="GitHub stats"/>
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=roudayn-kouka&layout=compact&langs_count=8&hide_border=true&bg_color=0c0814&title_color=f472b6&text_color=f5e8ff&border_radius=16" height="170" alt="Top languages"/>
 </p>
 
 <p align="center">
-  <img src="https://streak-stats.demolab.com?user=roudayn-kouka&hide_border=true&background=0C0814&ring=F472B6&fire=F9A8D4&currStreakNum=F5E8FF&sideNums=F5E8FF&currStreakLabel=C4B5FD&sideLabels=C4B5FD&dates=C9B3D9&stroke=3B1A45&border_radius=16" width="70%" alt="GitHub streak"/>
+  <img src="https://raw.githubusercontent.com/roudayn-kouka/roudayn-kouka/output/streak.svg" width="80%" alt="GitHub streak"/>
 </p>
 
 <p align="center">
