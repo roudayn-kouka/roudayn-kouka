@@ -1,4 +1,4 @@
-name: Generate profile graphs (snake + activity)
+name: Generate profile graphs (snake + cards)
 
 on:
   schedule:
@@ -21,13 +21,16 @@ jobs:
       # Runs FIRST so that dist/ is created by the runner user.
       # (Platane/snk runs in a Docker container as root: if it creates dist/ first,
       #  the runner user can no longer write into it -> PermissionError.)
-      - name: Generate activity graph (last 31 days)
+      - name: Generate stats, streak & activity cards
         env:
+          # PROFILE_TOKEN = your own token -> counts PRIVATE contributions too
+          # (same numbers as your GitHub calendar). Falls back to public-only.
+          PROFILE_TOKEN: ${{ secrets.PROFILE_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_USER: ${{ github.repository_owner }}
         run: |
           mkdir -p dist
-          python3 scripts/activity_graph.py dist/activity-graph.svg
+          python3 scripts/profile_cards.py dist
 
       - name: Generate snake (plum / rose / lilac palette)
         uses: Platane/snk@v3
