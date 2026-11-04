@@ -29,6 +29,12 @@ SANS = activity_graph.SANS
 MONO = activity_graph.MONO
 
 
+# Languages to leave out of the "Top languages" card, comma-separated,
+# e.g. EXCLUDE_LANGS="Jupyter Notebook,HTML" (set it in the workflow env).
+EXCLUDE_LANGS = {x.strip() for x in os.environ.get("EXCLUDE_LANGS", "").split(",") if x.strip()}
+LANGS_COUNT = 8
+
+
 # ------------------------------------------------------------------ API
 def gql(token, query, variables):
     req = urllib.request.Request(
@@ -49,7 +55,8 @@ Q_PROFILE = """query($login:String!){ user(login:$login){
   pullRequests{ totalCount }
   issues{ totalCount }
   repositories(ownerAffiliations:OWNER, isFork:false, first:100){
-    totalCount nodes{ stargazerCount } }
+    totalCount nodes{ stargazerCount
+      languages(first:10, orderBy:{field:SIZE, direction:DESC}){ edges{ size node{ name color } } } } }
   repositoriesContributedTo(contributionTypes:[COMMIT,PULL_REQUEST,ISSUE,REPOSITORY]){ totalCount }
 }}"""
 
@@ -76,7 +83,16 @@ def fetch(user, token):
     # last 365 days, exactly like the profile calendar header
     last = gql(token, Q_YEAR, {"login": user, "from": (now - dt.timedelta(days=365)).isoformat(), "to": now.isoformat()})["user"]["contributionsCollection"]
     commits_last_year = last["totalCommitContributions"] + last["restrictedContributionsCount"]
+    langs = {}
+    for n in p["repositories"]["nodes"]:
+        for e in n["languages"]["edges"]:
+            name = e["node"]["name"]
+            if name in EXCLUDE_LANGS:
+                continue
+            size, col = langs.get(name, (0, e["node"]["color"] or LILAC))
+            langs[name] = (size + e["size"], col)
     return {
+        "langs": langs,
         "created": created.date(),
         "days": dict(sorted(days.items())),
         "last_year_total": last["contributionCalendar"]["totalContributions"],
@@ -94,7 +110,9 @@ def demo():
     today = dt.date.today()
     start = today - dt.timedelta(days=870)
     days = {str(start + dt.timedelta(days=i)): random.choice([0, 0, 0, 1, 2, 4, 7]) for i in range(871)}
-    return {"created": start, "days": days, "last_year_total": 235, "commits_last_year": 190, "stars": 3,
+    langs = {"Python": (52000, "#3572A5"), "Java": (41000, "#b07219"), "TypeScript": (30000, "#3178c6"), "JavaScript": (28000, "#f1e05a"),
+             "Go": (12000, "#00ADD8"), "HCL": (9000, "#844FBA"), "Shell": (7000, "#89e051"), "Dockerfile": (3000, "#384d54"), "C#": (2500, "#178600")}
+    return {"langs": langs, "created": start, "days": days, "last_year_total": 235, "commits_last_year": 190, "stars": 3,
             "repos": 41, "prs": 6, "issues": 2, "followers": 3, "contributed_to": 5}
 
 
@@ -188,6 +206,36 @@ def render_stats(s, user):
     return frame(W, H, "".join(body), f"GitHub stats for {user}")
 
 
+# ----------------------------------------------------------- languages
+def render_langs(langs, user):
+    W, H = 440, 230
+    top = sorted(langs.items(), key=lambda kv: -kv[1][0])[:LANGS_COUNT]
+    total = sum(v[0] for _, v in top) or 1
+    bx, by, bw, bh = 30, 66, W - 60, 10
+    body = [f'<text x="30" y="44" font-family="{MONO}" font-size="12.5" letter-spacing="2.5" fill="{ROSE}">TOP LANGUAGES</text>',
+            f'<clipPath id="bar"><rect x="{bx}" y="{by}" width="{bw}" height="{bh}" rx="5"/></clipPath>',
+            f'<rect x="{bx}" y="{by}" width="{bw}" height="{bh}" rx="5" fill="{GRID}"/>']
+    x = bx
+    segs = []
+    for name, (size, col) in top:
+        w = bw * size / total
+        segs.append(f'<rect x="{x:.1f}" y="{by}" width="{w:.1f}" height="{bh}" fill="{col}"/>')
+        x += w
+    body.append(f'<g clip-path="url(#bar)"><g>{"".join(segs)}'
+                f'<animateTransform attributeName="transform" type="scale" from="0 1" to="1 1" dur="1.2s" fill="freeze" additive="sum"/></g></g>')
+    for i, (name, (size, col)) in enumerate(top):
+        c, r = i % 2, i // 2
+        x, y = 30 + c * 195, 110 + r * 30
+        pct = 100 * size / total
+        body.append(f'<g opacity="0"><animate attributeName="opacity" values="0;1" dur="0.4s" begin="{0.3 + 0.1*i:.2f}s" fill="freeze"/>'
+                    f'<circle cx="{x+6}" cy="{y-5}" r="6" fill="{col}"/>'
+                    f'<text x="{x+20}" y="{y}" font-family="{SANS}" font-size="14" fill="{TEXT}">{name}</text>'
+                    f'<text x="{x+180}" y="{y}" text-anchor="end" font-family="{MONO}" font-size="12.5" fill="{MUTED}">{pct:.1f}%</text></g>')
+    if not top:
+        body.append(f'<text x="{W/2}" y="130" text-anchor="middle" font-family="{SANS}" font-size="14" fill="{MUTED}">No language data</text>')
+    return frame(W, H, "".join(body), f"Top languages for {user}")
+
+
 # -------------------------------------------------------------- streak
 def render_streak(st, user):
     W, H = 900, 220
@@ -235,6 +283,7 @@ if __name__ == "__main__":
     last31 = [{"date": k, "contributionCount": v} for k, v in list(s["days"].items())[-activity_graph.DAYS:]]
     files = {
         "stats.svg": render_stats(s, user),
+        "top-langs.svg": render_langs(s["langs"], user),
         "streak.svg": render_streak(st, user),
         "activity-graph.svg": activity_graph.render(last31, s["last_year_total"], user),
     }

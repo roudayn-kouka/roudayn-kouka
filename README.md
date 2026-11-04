@@ -185,7 +185,7 @@ status:
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/roudayn-kouka/roudayn-kouka/output/stats.svg" height="170" alt="GitHub stats"/>
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=roudayn-kouka&layout=compact&langs_count=8&hide_border=true&bg_color=0c0814&title_color=f472b6&text_color=f5e8ff&border_radius=16" height="170" alt="Top languages"/>
+  <img src="https://raw.githubusercontent.com/roudayn-kouka/roudayn-kouka/output/top-langs.svg" height="170" alt="Top languages"/>
 </p>
 
 <p align="center">
